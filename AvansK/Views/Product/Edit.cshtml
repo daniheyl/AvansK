@@ -1,0 +1,29 @@
+﻿@using Core.Domain;
+@{
+    ViewData["Title"] = "Edit";
+}
+@model Product
+
+<h1>Edit</h1>
+
+<form asp-action="Edit" method="post" asp-route-id="@Model.Id">
+
+    <div class="form-group">
+        <label asp-for="Name">Naam</label>
+        <input class="form-control" asp-for="Name" value="@Model.Name" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="ContainsAlcohol">Bevat Alcohol</label>
+        <input asp-for="ContainsAlcohol" value="@Model.ContainsAlcohol" />
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Picture">Pic</label>
+        <input class="form-control" asp-for="Picture" value="@Model.Picture" />
+    </div>
+
+    <div class="form-group row">
+        <button class="btn btn-primary col-sm-4 text-center">Edit product</button>
+    </div>
+</form>

@@ -16,17 +16,17 @@ namespace Portal.Models
             return result;
         }
 
-        //public static List<FoodPackageViewModel> ToViewModel(this IEnumerable<FoodPackage> foodPackages)
-        //{
-        //    var result = new List<FoodPackageViewModel>();
+        public static List<FoodPackageViewModel> ToViewModel(this IEnumerable<FoodPackage> foodPackages)
+        {
+            var result = new List<FoodPackageViewModel>();
 
-        //    foreach (var foodPackage in foodPackages)
-        //    {
-        //        result.Add(foodPackage.ToViewModel());
-        //    }
+            foreach (var foodPackage in foodPackages)
+            {
+                result.Add(foodPackage.ToViewModel());
+            }
 
-        //    return result;
-        //}
+            return result;
+        }
 
         public static ProductViewModel ToViewModel(this Product product)
         {
@@ -42,39 +42,38 @@ namespace Portal.Models
 
         }
 
-        //public static FoodPackageViewModel ToViewModel(this FoodPackage foodPackage)
-        //{
-        //    var result = new FoodPackageViewModel
-        //    {
-        //        Id = foodPackage.Id,
-        //        Name = foodPackage.Name,
-        //        PackageDetails = foodPackage.PackageDetails.ToViewModel()
-        //    };
+        public static FoodPackageViewModel ToViewModel(this FoodPackage foodPackage)
+        {
+            var result = new FoodPackageViewModel
+            {
+                Id = foodPackage.Id,
+                Name = foodPackage.Name,
+            };
 
-        //    return result;
+            return result;
 
-        //}
+        }
 
-        //public static List<PackageDetailViewModel> ToViewModel(this ICollection<PackageDetail> packageDetails)
-        //{
+        public static List<PackageDetailViewModel> ToViewModel(this ICollection<PackageDetail> packageDetails)
+        {
 
-        //    var result = new List<PackageDetailViewModel>();
+            var result = new List<PackageDetailViewModel>();
 
-        //    foreach (var packageDetail in packageDetails)
-        //    {
-        //        var ToAdd = new PackageDetailViewModel
-        //        {
-        //            ProductId = packageDetail.ProductId,
-        //            Id = packageDetail.Id,
-        //            Product = packageDetail.Product.ToViewModel(),
-        //            FoodPackage = packageDetail.FoodPackage.ToViewModel(),
-        //            FoodPackageId = packageDetail.FoodPackageId,
-        //        };
-        //        result.Add(ToAdd);
-        //    }
+            foreach (var packageDetail in packageDetails)
+            {
+                var ToAdd = new PackageDetailViewModel
+                {
+                    ProductId = packageDetail.ProductId,
+                    Id = packageDetail.Id,
+                    Product = packageDetail.Product.ToViewModel(),
+                    FoodPackage = packageDetail.FoodPackage.ToViewModel(),
+                    FoodPackageId = packageDetail.FoodPackageId,
+                };
+                result.Add(ToAdd);
+            }
 
-        //    return result;
+            return result;
 
-        //}
+        }
     }
 }

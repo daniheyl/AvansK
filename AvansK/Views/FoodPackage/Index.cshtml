@@ -1,0 +1,49 @@
+﻿@using Core.Domain
+@using Portal;
+@{
+    ViewData["Title"] = "Index";
+}
+
+@model List<FoodPackage>;
+
+
+<h1>Food</h1>
+
+<button class="btn btn-primary"><a style="text-decoration: none; color:white;" asp-area="" asp-controller="FoodPackage" asp-action="Add">Add</a></button>
+
+<table class="table table-striped">
+    <thead>
+    <th>Id</th>
+    <th>Name</th>
+    <th>products</th>
+    <th></th>
+    </thead>
+    <tbody>
+        @foreach (var foodPackage in @Model)
+        {
+            <tr>
+                <td>@foodPackage.Id</td>
+                <td>@foodPackage.Name</td>
+                <td>
+                    @if (foodPackage.PackageDetails != null)
+                    {
+                        @foreach (var item in foodPackage.PackageDetails)
+                        {
+                            <p>@item.Product.Name</p>
+                        }
+                    }
+                </td>
+                <td>
+                    <form asp-action="" asp-route-id="" method="post">
+                        <button class="btn btn-danger">Delete</button>
+                    </form>
+                    <a class="btn btn-sm btn-primary" asp-action="" asp-route-id="">
+                        Update
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

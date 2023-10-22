@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 var connectionString = builder.Configuration.GetConnectionString("Default");
 builder.Services.AddDbContext<FoodPackageDbContext>(options => options.UseSqlServer(connectionString));
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
+builder.Services.AddScoped<IFoodPackageRepository, FoodpackageRepository>();
 
 var app = builder.Build();
 

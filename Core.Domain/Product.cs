@@ -17,6 +17,7 @@ namespace Core.Domain
 
         public string Picture { get; set; }
 
+
         public Product() 
         { 
         
