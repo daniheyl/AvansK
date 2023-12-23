@@ -13,11 +13,13 @@ namespace Core.Domain
 
         public string Name { get; set; }
 
-        public IEnumerable<PackageDetail> PackageDetails { get; set; } = new List<PackageDetail>();
+        //public IEnumerable<Product> Products { get; set; } = new List<Product>();
+
+        public List<PackageDetail> PackageDetails { get; set; } = new List<PackageDetail>();
 
         public FoodPackage() { }
 
-        public FoodPackage ( int id, string name, List<Product> products, ICollection<PackageDetail> packageDetails)
+        public FoodPackage ( int id, string name, List<PackageDetail> packageDetails)
         {
             Id = id;
             Name = name;

@@ -47,7 +47,7 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PackageDetails",
+                name: "PackageDetail",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -57,15 +57,15 @@ namespace Infrastructure.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PackageDetails", x => x.Id);
+                    table.PrimaryKey("PK_PackageDetail", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PackageDetails_FoodPackages_FoodPackageId",
+                        name: "FK_PackageDetail_FoodPackages_FoodPackageId",
                         column: x => x.FoodPackageId,
                         principalTable: "FoodPackages",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PackageDetails_Products_ProductId",
+                        name: "FK_PackageDetail_Products_ProductId",
                         column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "Id",
@@ -92,7 +92,7 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "PackageDetails",
+                table: "PackageDetail",
                 columns: new[] { "Id", "FoodPackageId", "ProductId" },
                 values: new object[,]
                 {
@@ -101,13 +101,13 @@ namespace Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_PackageDetails_FoodPackageId",
-                table: "PackageDetails",
+                name: "IX_PackageDetail_FoodPackageId",
+                table: "PackageDetail",
                 column: "FoodPackageId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PackageDetails_ProductId",
-                table: "PackageDetails",
+                name: "IX_PackageDetail_ProductId",
+                table: "PackageDetail",
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
@@ -120,7 +120,7 @@ namespace Infrastructure.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PackageDetails");
+                name: "PackageDetail");
 
             migrationBuilder.DropTable(
                 name: "Products");

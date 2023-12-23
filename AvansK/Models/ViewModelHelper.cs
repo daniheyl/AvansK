@@ -54,26 +54,6 @@ namespace Portal.Models
 
         }
 
-        public static List<PackageDetailViewModel> ToViewModel(this ICollection<PackageDetail> packageDetails)
-        {
 
-            var result = new List<PackageDetailViewModel>();
-
-            foreach (var packageDetail in packageDetails)
-            {
-                var ToAdd = new PackageDetailViewModel
-                {
-                    ProductId = packageDetail.ProductId,
-                    Id = packageDetail.Id,
-                    Product = packageDetail.Product.ToViewModel(),
-                    FoodPackage = packageDetail.FoodPackage.ToViewModel(),
-                    FoodPackageId = packageDetail.FoodPackageId,
-                };
-                result.Add(ToAdd);
-            }
-
-            return result;
-
-        }
     }
 }

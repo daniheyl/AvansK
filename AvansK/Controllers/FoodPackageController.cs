@@ -20,7 +20,7 @@ namespace Portal.Controllers
         {
             PreFillFoodPackage();
             var listOfWeetIkVeel = _foodPackageRepository.GetAll();
-            return View(listOfWeetIkVeel);//_foodPackageRepository.GetAll().ToViewModel());
+            return View(listOfWeetIkVeel);
         }
 
         public IActionResult Add()
@@ -48,9 +48,11 @@ namespace Portal.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> NewPackage(FoodPackage package)
+        public async Task<IActionResult> NewPackage(CreateFoodPackage package)
         {
-            await _foodPackageRepository.AddPackage(package);
+            //var newFoodPackage = new FoodPackage(package.);
+
+            //await _foodPackageRepository.AddPackage();
             return RedirectToAction("Index");
         }
 

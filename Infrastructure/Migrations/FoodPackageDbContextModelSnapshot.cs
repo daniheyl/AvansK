@@ -71,7 +71,7 @@ namespace Infrastructure.Migrations
 
                     b.HasIndex("ProductId");
 
-                    b.ToTable("PackageDetails");
+                    b.ToTable("PackageDetail");
 
                     b.HasData(
                         new
@@ -143,7 +143,7 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Core.Domain.PackageDetail", b =>
                 {
                     b.HasOne("Core.Domain.FoodPackage", "FoodPackage")
-                        .WithMany("packageDetails")
+                        .WithMany()
                         .HasForeignKey("FoodPackageId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -169,8 +169,6 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Core.Domain.FoodPackage", b =>
                 {
                     b.Navigation("Products");
-
-                    b.Navigation("packageDetails");
                 });
 #pragma warning restore 612, 618
         }

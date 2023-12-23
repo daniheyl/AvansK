@@ -14,8 +14,8 @@ namespace Core.Domain
 
         public int ProductId { get; set; }
 
-        public Product Product { get; set; }
+        public Product Product { get; set; } = null!;
 
-        public FoodPackage FoodPackage { get; set; }
+        public FoodPackage FoodPackage { get; set; } = null!;
     }
 }
